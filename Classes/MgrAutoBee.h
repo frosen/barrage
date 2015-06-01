@@ -24,7 +24,7 @@ public:
     static AutoBeeInMgr* create();
     
     //重载死亡动作，归还核心到池中
-    void die() override;
+    void die();
     
 protected:
     int m_nIndex; //索引蜜蜂在管理器中数组的位置

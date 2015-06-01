@@ -1,4 +1,5 @@
 #include "HelloWorldScene.h"
+#include "llyI18N.h"
 
 USING_NS_CC;
 
@@ -61,7 +62,7 @@ bool HelloWorld::init()
                             origin.y + visibleSize.height - label->getContentSize().height));
 
     // add the label as a child to this layer
-    this->addChild(label, 1);
+    //this->addChild(label, 1);
 
     // add "HelloWorld" splash screen"
     auto sprite = Sprite::create("HelloWorld.png");
@@ -71,6 +72,11 @@ bool HelloWorld::init()
 
     // add the sprite as a child to this layer
     this->addChild(sprite, 0);
+    
+    lly::I18N::setLanguageType(lly::I18N::LangType::CHINESE);
+    auto a = lly::i18n("name1");
+    log(a.c_str());
+
     
     return true;
 }

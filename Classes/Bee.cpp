@@ -11,7 +11,7 @@
 Bee::Bee():
     Sprite(),
     m_strName("unnamed"),
-    m_type(BeeType::AutoBee),
+    m_type(TypeBee::AutoBee),
     m_nCollisionDistance(-1)
 {
     
