@@ -1,36 +1,36 @@
-﻿#include "llyCSVLoad.h"
+﻿#include "llyCSVLoader.h"
 
 USING_NS_CC;
 using namespace std;
 using namespace lly;
 
-CSVLoad* CSVLoad::s_CsvLoad = nullptr;
+CSVLoader* CSVLoader::S_CsvLoader = nullptr;
 
-CSVLoad::CSVLoad()
+CSVLoader::CSVLoader()
 {
 
 }
 
-CSVLoad::~CSVLoad()
+CSVLoader::~CSVLoader()
 {
 
 }
 
-CSVLoad* CSVLoad::getInstance()
+CSVLoader* CSVLoader::getInstance()
 {
-	if (!s_CsvLoad)
+	if (!S_CsvLoader)
 	{
-		s_CsvLoad = new CSVLoad();
+		S_CsvLoader = new CSVLoader();
 	}
-	return s_CsvLoad;
+	return S_CsvLoader;
 }
 
-void CSVLoad::destroyInstance()
+void CSVLoader::destroyInstance()
 {
-	CC_SAFE_DELETE(s_CsvLoad);
+	CC_SAFE_DELETE(S_CsvLoader);
 }
 
-bool CSVLoad::loadFile( const char* sPath )
+bool CSVLoader::loadFile( const char* sPath )
 {
 	//第一步，读取文件为字符串
 	string strData = FileUtils::getInstance()->getStringFromFile(sPath);
@@ -44,8 +44,7 @@ bool CSVLoad::loadFile( const char* sPath )
 	vector<string> vStr;
 
 	//字符串，用于将单个字符连接成字符串后传给vector
-	char str[1024];
-	int p = 0;
+	int pFrom = 0;
 
 	string strTemp;
 
@@ -61,24 +60,20 @@ bool CSVLoad::loadFile( const char* sPath )
 		{
 		case ',':
 			{
-				//转成string
-				str[p] = '\0';
-				strTemp = str;
+				//将从from到i的子字符串加入数组
+				vStr.push_back(strData.substr(pFrom, i - pFrom));
 
-				//加入数组
-				vStr.push_back(strTemp);
-
-				//清空str中的字符
-				p = 0;
+				//下一个字符
+                pFrom = i + 1;
 			}
 			break;
 		case '\n':
 			{
 				//把最后一组字符串放入vstr数组中
-				str[p] = '\0';
-				strTemp = strData;
-				vStr.push_back(strTemp);
-				p = 0;
+                vStr.push_back(strData.substr(pFrom, i - pFrom));
+                
+                //下一个字符
+                pFrom = i + 1;
 
 				//将整个数组放入arLine数组中
 				vLine.push_back(vStr);
@@ -88,11 +83,7 @@ bool CSVLoad::loadFile( const char* sPath )
 			}
 			break;
 		default:
-			{
-				//将字符依次放入str中
-				str[p] = strData[i];
-				++p;
-			}
+        
 			break;
 		}
 	}
@@ -103,7 +94,7 @@ bool CSVLoad::loadFile( const char* sPath )
 	return true;
 }
 
-const char* CSVLoad::get( int nRow, int nCol, const char* csvFilePath )
+const char* CSVLoader::get( int nRow, int nCol, const char* csvFilePath )
 {
 	do
 	{
@@ -130,11 +121,11 @@ const char* CSVLoad::get( int nRow, int nCol, const char* csvFilePath )
 	} while (0);
 
 	//错误
-	CCLOG("wrong in CsvLoad::get");
+	CCLOG("wrong in CsvLoader::get");
 	return "";
 }
 
-const int CSVLoad::getInt( int nRow, int nCol, const char* csvFilePath )
+const int CSVLoader::getInt( int nRow, int nCol, const char* csvFilePath )
 {
 	const char* str = get(nRow, nCol, csvFilePath);
 	int num;
@@ -143,7 +134,7 @@ const int CSVLoad::getInt( int nRow, int nCol, const char* csvFilePath )
 
 }
 
-const float CSVLoad::getFloat( int nRow, int nCol, const char* csvFilePath )
+const float CSVLoader::getFloat( int nRow, int nCol, const char* csvFilePath )
 {
 	const char* str = get(nRow, nCol, csvFilePath);
 	float num;
@@ -151,7 +142,7 @@ const float CSVLoad::getFloat( int nRow, int nCol, const char* csvFilePath )
 	return num;
 }
 
-const Size CSVLoad::getFileRowColNum( const char* csvFilePath )
+const Size CSVLoader::getFileRowColNum( const char* csvFilePath )
 {
 	do
 	{
@@ -164,22 +155,22 @@ const Size CSVLoad::getFileRowColNum( const char* csvFilePath )
 		}
 
 		//数据行数
-		int nRowNum = vLine.size();
+		int nRowNum = (int)vLine.size();
 
 		//获取第0行数据
 		vector<string> vStr = vLine.at(0);
-		int nColNum = vStr.size();
+		int nColNum = (int)vStr.size();
 
 		return Size(nColNum, nRowNum);
 
 	} while (0);
 
 	//错误
-	CCLOG("wrong in CsvLoad::getFileRowColNum");
+	CCLOG("wrong in CsvLoader::getFileRowColNum");
 	return Size::ZERO;
 }
 
-const int CSVLoad::findValueInWhichLine( const char* chValue, int nValueCol, const char* csvFilePath )
+const int CSVLoader::findValueInWhichLine( const char* chValue, int nValueCol, const char* csvFilePath )
 {
 	do
 	{
@@ -205,7 +196,7 @@ const int CSVLoad::findValueInWhichLine( const char* chValue, int nValueCol, con
 	} while (0);
 
 	//错误
-	CCLOG("wrong in CsvLoad::findValueInWhichLine");
+	CCLOG("wrong in CsvLoader::findValueInWhichLine");
 	return -1;
 }
 

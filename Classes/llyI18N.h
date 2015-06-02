@@ -73,8 +73,8 @@ protected:
 protected:
 	static I18N* S_I18N;
 
-	//字典： ID，字符串
-	std::map<std::string, std::string> m_mapString;
+	//字典： ID，字符串 无序map的效率更高
+	std::unordered_map<std::string, std::string> m_mapString;
 
 	//语言选择
 	static LangType S_elanguage;

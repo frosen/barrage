@@ -64,9 +64,9 @@
 		65F197081B1058CE00E14EAD /* llyAcceDirCtrler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65F197041B1058CE00E14EAD /* llyAcceDirCtrler.cpp */; };
 		65F197091B1058CE00E14EAD /* llyAngleToVec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65F197061B1058CE00E14EAD /* llyAngleToVec.cpp */; };
 		65F1970C1B105D7D00E14EAD /* MgrAutoBee.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65F1970A1B105D7D00E14EAD /* MgrAutoBee.cpp */; };
-		65F5AFCE1B1C3E8600F115EC /* llyCSVLoad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65F5AFCA1B1C3E8600F115EC /* llyCSVLoad.cpp */; };
 		65F5AFCF1B1C3E8600F115EC /* llyI18N.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65F5AFCC1B1C3E8600F115EC /* llyI18N.cpp */; };
 		65F5AFD21B1C5FAA00F115EC /* i18n in Resources */ = {isa = PBXBuildFile; fileRef = 65F5AFD11B1C5FAA00F115EC /* i18n */; };
+		65F660CF1B1D459000BA9C6E /* llyCSVLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65F660CD1B1D459000BA9C6E /* llyCSVLoader.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -168,11 +168,11 @@
 		65F1970A1B105D7D00E14EAD /* MgrAutoBee.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MgrAutoBee.cpp; sourceTree = "<group>"; };
 		65F1970B1B105D7D00E14EAD /* MgrAutoBee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MgrAutoBee.h; sourceTree = "<group>"; };
 		65F1970E1B10640B00E14EAD /* BeatNum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeatNum.h; sourceTree = "<group>"; };
-		65F5AFCA1B1C3E8600F115EC /* llyCSVLoad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = llyCSVLoad.cpp; sourceTree = "<group>"; };
-		65F5AFCB1B1C3E8600F115EC /* llyCSVLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = llyCSVLoad.h; sourceTree = "<group>"; };
 		65F5AFCC1B1C3E8600F115EC /* llyI18N.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = llyI18N.cpp; sourceTree = "<group>"; };
 		65F5AFCD1B1C3E8600F115EC /* llyI18N.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = llyI18N.h; sourceTree = "<group>"; };
 		65F5AFD11B1C5FAA00F115EC /* i18n */ = {isa = PBXFileReference; lastKnownFileType = folder; path = i18n; sourceTree = "<group>"; };
+		65F660CD1B1D459000BA9C6E /* llyCSVLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = llyCSVLoader.cpp; sourceTree = "<group>"; };
+		65F660CE1B1D459000BA9C6E /* llyCSVLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = llyCSVLoader.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -308,8 +308,8 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				65F5AFCA1B1C3E8600F115EC /* llyCSVLoad.cpp */,
-				65F5AFCB1B1C3E8600F115EC /* llyCSVLoad.h */,
+				65F660CD1B1D459000BA9C6E /* llyCSVLoader.cpp */,
+				65F660CE1B1D459000BA9C6E /* llyCSVLoader.h */,
 				65F5AFCC1B1C3E8600F115EC /* llyI18N.cpp */,
 				65F5AFCD1B1C3E8600F115EC /* llyI18N.h */,
 				65F197041B1058CE00E14EAD /* llyAcceDirCtrler.cpp */,
@@ -531,9 +531,9 @@
 				65F197001B1042B200E14EAD /* AutoBee.cpp in Sources */,
 				65F197091B1058CE00E14EAD /* llyAngleToVec.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
-				65F5AFCE1B1C3E8600F115EC /* llyCSVLoad.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				65F197081B1058CE00E14EAD /* llyAcceDirCtrler.cpp in Sources */,
+				65F660CF1B1D459000BA9C6E /* llyCSVLoader.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				65F1970C1B105D7D00E14EAD /* MgrAutoBee.cpp in Sources */,

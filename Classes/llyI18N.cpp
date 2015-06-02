@@ -1,5 +1,5 @@
 ﻿#include "llyI18N.h"
-#include "llyCSVLoad.h"
+#include "llyCSVLoader.h"
 
 USING_NS_CC;
 using namespace lly;
@@ -53,14 +53,14 @@ void I18N::setLanguageType( LangType langType )
 bool I18N::loadStringFromConf( const char* sFilePath )
 {
 	//读取配置文件
-	if (!CSVLoad::getInstance()->loadFile(sFilePath))
+	if (!CSVLoader::getInstance()->loadFile(sFilePath))
 	{
 		CCLOG("@wrong loadFile(sFilePath) in I18N::loadStringFromConf");
 		return false;
 	}
 
 	//读取csv列表
-	std::vector<std::vector<std::string> > vec = CSVLoad::getInstance()->getCSVFile(sFilePath);
+	std::vector<std::vector<std::string> > vec = CSVLoader::getInstance()->getCSVFile(sFilePath);
 
 	//列数少于2，则配置文件有误
 	int nSize = (int)vec.size();
@@ -78,15 +78,15 @@ bool I18N::loadStringFromConf( const char* sFilePath )
 	for (int i = 1; i < nSize; ++i)
 	{
 		//csv的第一列是ID，第二列是字符串
-        vLine = vec.at(i);
-		StrKey = vLine.at(0);
-		StrValue = vLine.at((int)S_elanguage);
+        vLine = std::move(vec.at(i));
+		StrKey = std::move(vLine.at(0));
+		StrValue = std::move(vLine.at((int)S_elanguage));
 
 		m_mapString.insert(std::pair<std::string, std::string>(StrKey, StrValue));
 	}
 
 	//释放csv的内存
-	CSVLoad::getInstance()->releaseFile(sFilePath);
+	CSVLoader::getInstance()->releaseFile(sFilePath);
 
 	return true;
 }

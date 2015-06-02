@@ -73,7 +73,7 @@ bool HelloWorld::init()
     // add the sprite as a child to this layer
     this->addChild(sprite, 0);
     
-    lly::I18N::setLanguageType(lly::I18N::LangType::CHINESE);
+    //lly::I18N::setLanguageType(lly::I18N::LangType::CHINESE);
     auto a = lly::i18n("name1");
     log(a.c_str());
 

@@ -1,25 +1,25 @@
 ﻿/*
-名称：llyCSVLoad.h
+名称：llyCSVLoader.h
 描述：Csv文件读取
 作者：乐颜
 日期：2013.12.23
 */
 
-#ifndef _CSV_LOAD_H_
-#define _CSV_LOAD_H_
+#ifndef _CSV_LOADER_H_
+#define _CSV_LOADER_H_
 
 #include "cocos2d.h"
 
 namespace lly {
 
-class CSVLoad : public cocos2d::Ref
+class CSVLoader : public cocos2d::Ref
 {
 public:
-	CSVLoad();
-	virtual ~CSVLoad();
+	CSVLoader();
+	virtual ~CSVLoader();
 
 	//单例
-	static CSVLoad* getInstance();
+	static CSVLoader* getInstance();
 	static void destroyInstance();
 
 	//加载配置文件
@@ -48,8 +48,9 @@ public:
 	const int findValueInWhichLine(const char* chValue, int nValueCol, const char* csvFilePath);
 
 protected:
-	static CSVLoad* s_CsvLoad;
+	static CSVLoader* S_CsvLoader;
 
+    const char* m_chCsvHold; //csv读取后作为一个字符串储存在此，而vec里是对字符串各个位置的引用
 	std::map<const char*, std::vector<std::vector<std::string> > > m_mapCsv;
 };
 
