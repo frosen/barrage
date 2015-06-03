@@ -26,14 +26,13 @@ public:
 	bool loadFile(const char* sPath);
 
 	//释放配置文件
-	void releaseFile(const char* sPath) { m_mapCsv.erase(sPath); }
-
+	void releaseFile(const char* sPath);
+    
 	//获取某个csv列表
-	std::vector<std::vector<std::string> > getCSVFile(const char* csvFilePath)
-		 { return m_mapCsv.at(csvFilePath); }
+	std::vector<std::vector<unsigned char*> > getCSVFile(const char* csvFilePath);
 
 	//获取某行某列的值
-	const char* get(int nRow, int nCol, const char* csvFilePath);
+	const unsigned char* get(int nRow, int nCol, const char* csvFilePath);
 
 	//获取某行某列的值，并且转换为整型
 	const int getInt(int nRow, int nCol, const char* csvFilePath);
@@ -50,8 +49,9 @@ public:
 protected:
 	static CSVLoader* S_CsvLoader;
 
-    const char* m_chCsvHold; //csv读取后作为一个字符串储存在此，而vec里是对字符串各个位置的引用
-	std::map<const char*, std::vector<std::vector<std::string> > > m_mapCsv;
+    //csv读取后作为一个字符串储存在此，而vec里是对字符串各个位置的引用
+    std::map<const char*, unsigned char*> m_mapCsvHold;
+    std::map<const char*, std::vector<std::vector<unsigned char*> > > m_mapCsv;
 };
 
 } //lly

@@ -60,7 +60,7 @@ bool I18N::loadStringFromConf( const char* sFilePath )
 	}
 
 	//读取csv列表
-	std::vector<std::vector<std::string> > vec = CSVLoader::getInstance()->getCSVFile(sFilePath);
+	std::vector<std::vector<unsigned char*> > vec = CSVLoader::getInstance()->getCSVFile(sFilePath);
 
 	//列数少于2，则配置文件有误
 	int nSize = (int)vec.size();
@@ -70,19 +70,20 @@ bool I18N::loadStringFromConf( const char* sFilePath )
 		return false;
 	}
 
-    std::vector<std::string> vLine;
-	std::string StrKey = "";
-	std::string StrValue = "";
+    std::vector<unsigned char*> vLine;
+	unsigned char* StrKey;
+	unsigned char* StrValue;
 
 	//将配置文件的所有字符串放入字典中，忽略第一行
 	for (int i = 1; i < nSize; ++i)
 	{
 		//csv的第一列是ID，第二列是字符串
         vLine = std::move(vec.at(i));
-		StrKey = std::move(vLine.at(0));
-		StrValue = std::move(vLine.at((int)S_elanguage));
+		StrKey = vLine.at(0);
+		StrValue = vLine.at((int)S_elanguage);
 
-		m_mapString.insert(std::pair<std::string, std::string>(StrKey, StrValue));
+		m_mapString.insert(std::pair<std::string, std::string>(
+            std::string((char*)StrKey), std::string((char*)StrValue)));
 	}
 
 	//释放csv的内存

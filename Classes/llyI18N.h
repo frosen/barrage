@@ -33,7 +33,7 @@ class I18N : public cocos2d::Ref
 public:
 	enum class LangType
 	{
-		ENGLISH = 1,
+		ENGLISH = 1, //1对应第二列，因为第一列是id
 		CHINESE,
 		FRENCH,
 		ITALIAN,
