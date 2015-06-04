@@ -73,9 +73,9 @@ bool HelloWorld::init()
     // add the sprite as a child to this layer
     this->addChild(sprite, 0);
     
-    lly::I18N::setLanguageType(lly::I18N::LangType::CHINESE);
-    auto a = lly::i18n("name1");
-    log(a.c_str());
+    //lly::I18N::setLanguageType(lly::I18N::LangType::CHINESE);
+    //auto a = lly::i18n("name1");
+    //log(a.c_str());
 
     
     return true;
@@ -84,14 +84,24 @@ bool HelloWorld::init()
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
-	MessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");
-    return;
-#endif
-
-    Director::getInstance()->end();
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    exit(0);
-#endif
+//#if (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
+//	MessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");
+//    return;
+//#endif
+//
+//    Director::getInstance()->end();
+//
+//#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+//    exit(0);
+//#endif
+    cocos2d::log("press");
+    for (int i = 0; i < 10000000; ++i) {
+        for (int j = 0; j < 30; ++j) {
+            double a, b;
+            a = 1;
+            b = 2;
+            double c = 1 * 2;
+        }
+        
+    }
 }

@@ -64,6 +64,13 @@
 		65F197081B1058CE00E14EAD /* llyAcceDirCtrler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65F197041B1058CE00E14EAD /* llyAcceDirCtrler.cpp */; };
 		65F197091B1058CE00E14EAD /* llyAngleToVec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65F197061B1058CE00E14EAD /* llyAngleToVec.cpp */; };
 		65F1970C1B105D7D00E14EAD /* MgrAutoBee.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65F1970A1B105D7D00E14EAD /* MgrAutoBee.cpp */; };
+		65F422F61B203F3B00F985E2 /* llyCSVLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65F660CD1B1D459000BA9C6E /* llyCSVLoader.cpp */; };
+		65F422F71B203F3B00F985E2 /* llyI18N.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65F5AFCC1B1C3E8600F115EC /* llyI18N.cpp */; };
+		65F422F81B203F3B00F985E2 /* llyAcceDirCtrler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65F197041B1058CE00E14EAD /* llyAcceDirCtrler.cpp */; };
+		65F422F91B203F3B00F985E2 /* llyAngleToVec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65F197061B1058CE00E14EAD /* llyAngleToVec.cpp */; };
+		65F422FA1B203F3B00F985E2 /* Bee.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65F196FB1B103F2600E14EAD /* Bee.cpp */; };
+		65F422FB1B203F3B00F985E2 /* AutoBee.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65F196FE1B1042B200E14EAD /* AutoBee.cpp */; };
+		65F422FC1B203F3B00F985E2 /* MgrAutoBee.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65F1970A1B105D7D00E14EAD /* MgrAutoBee.cpp */; };
 		65F5AFCF1B1C3E8600F115EC /* llyI18N.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65F5AFCC1B1C3E8600F115EC /* llyI18N.cpp */; };
 		65F5AFD21B1C5FAA00F115EC /* i18n in Resources */ = {isa = PBXBuildFile; fileRef = 65F5AFD11B1C5FAA00F115EC /* i18n */; };
 		65F660CF1B1D459000BA9C6E /* llyCSVLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65F660CD1B1D459000BA9C6E /* llyCSVLoader.cpp */; };
@@ -545,6 +552,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65F422F61B203F3B00F985E2 /* llyCSVLoader.cpp in Sources */,
+				65F422F71B203F3B00F985E2 /* llyI18N.cpp in Sources */,
+				65F422F81B203F3B00F985E2 /* llyAcceDirCtrler.cpp in Sources */,
+				65F422F91B203F3B00F985E2 /* llyAngleToVec.cpp in Sources */,
+				65F422FA1B203F3B00F985E2 /* Bee.cpp in Sources */,
+				65F422FB1B203F3B00F985E2 /* AutoBee.cpp in Sources */,
+				65F422FC1B203F3B00F985E2 /* MgrAutoBee.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
