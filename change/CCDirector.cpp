@@ -108,6 +108,14 @@ void Director::discardFrames(int frames)
     S_nFramesDiscard = frames;
 }
 
+static int S_nReduceRendering = 1;
+static int S_nRealRendering = 1;
+void Director::reduceRenderingTimes(int n)
+{
+    if (n < 1) n = 1;
+    S_nReduceRendering = n;
+}
+
 //====================================================
 
 bool Director::init(void)
@@ -281,6 +289,12 @@ void Director::drawScene()
     if (S_nFramesDiscard > 0) {
         --S_nFramesDiscard;
         return drawScene();
+    }
+    
+    if (S_nRealRendering == 1) S_nRealRendering = S_nReduceRendering;
+    else{
+        --S_nRealRendering;
+        return;
     }
     //================================================================
 

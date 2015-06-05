@@ -505,7 +505,11 @@ protected:
 
 //lly=====================================
 public:
+    //丢弃几个帧的渲染，但不影响update，参数：丢弃数量
     void discardFrames(int frames);
+    
+    //降低渲染次数，参数：每多少帧渲染一次
+    void reduceRenderingTimes(int n);
 
 //========================================
 };
