@@ -18,6 +18,13 @@ Scene* HelloWorld::createScene()
     return scene;
 }
 
+static void* a = nullptr;
+
+HelloWorld::HelloWorld()
+{
+    a = this;
+}
+
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
 {
@@ -26,6 +33,10 @@ bool HelloWorld::init()
     if ( !Layer::init() )
     {
         return false;
+    }
+    
+    if (a) {
+        log("a");
     }
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -73,9 +84,9 @@ bool HelloWorld::init()
     // add the sprite as a child to this layer
     this->addChild(sprite, 0);
     
-    //lly::I18N::setLanguageType(lly::I18N::LangType::CHINESE);
-    //auto a = lly::i18n("name1");
-    //log(a.c_str());
+    lly::I18N::setLanguageIsSystemLanguage();
+    auto a = lly::i18n("name1");
+    log(a.c_str());
 
     
     return true;
