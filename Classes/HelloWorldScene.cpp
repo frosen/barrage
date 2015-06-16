@@ -1,6 +1,9 @@
 #include "HelloWorldScene.h"
 #include "llyI18N.h"
 
+#include "ui/CocosGUI.h"
+#include "cocostudio/cocostudio.h"
+
 USING_NS_CC;
 
 Scene* HelloWorld::createScene()
@@ -84,9 +87,12 @@ bool HelloWorld::init()
     // add the sprite as a child to this layer
     this->addChild(sprite, 0);
     
-    lly::I18N::setLanguageIsSystemLanguage();
-    auto a = lly::i18n("name1");
-    log(a.c_str());
+//    lly::I18N::setLanguageIsSystemLanguage();
+//    auto a = lly::i18n("name1");
+//    log(a.c_str());
+    
+    Node* root = CSLoader::createNode("res/MainScene.csb");
+    this->addChild(root);
 
     
     return true;
